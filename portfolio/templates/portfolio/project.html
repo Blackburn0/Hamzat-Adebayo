@@ -1,0 +1,30 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block content %}
+    <main>
+      <section class="bg-[#25262a] p-12 text-white max-sm:p-5">
+        <div class="mb-10 font-mono text-3xl text-center">
+          <h3 class="">Projects</h3>
+          <p class="text-md">Things i have built so far</p>
+        </div>
+        <div class="grid grid-cols-3 gap-x-3 gap-y-36 *:mb-4 mt-6 mb-20 max-sm:grid-cols-1">
+          {% for project in projects  %}
+          
+          <div class="rounded-md shadow-2xl w-80">
+            <img src="{{project.image.url}}" class="rounded-md h-fit" alt=""/>
+            <div class="p-4">
+              Tech Stack:  {{project.tech_stack}}
+              <div>
+                <i class="bx bxl-github" style="color: #ffffff"></i>
+                <a href="{{project.source_link}}" target="_blank" class="text-red-500">{{project.title}}</a>
+                <br>
+                <i class="bx bx-link" style="color: #ffffff"></i>
+                <a href="{{project.live_link}}" target="_blank" class="text-red-500">{{project.title}}</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+    {% endblock content %}
